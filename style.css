@@ -1035,8 +1035,6 @@
   min-width: 300px;
 }
 
-/* ========== Responsive Styles ========== */
-
 @media (max-width: 1200px) {
   .items-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1044,26 +1042,16 @@
 }
 
 @media (max-width: 768px) {
-  header nav ul {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul {
     flex-direction: column;
     gap: 15px;
     align-items: flex-start;
-  }
-
-  .sidebar {
-    position: fixed;
-    width: 200px;
-    left: -200px;
-    top: 0;
-    height: 100%;
-    background: #fff;
-    z-index: 1000;
-    padding-top: 60px;
-    transition: left 0.3s ease;
-  }
-
-  .sidebar.active {
-    left: 0;
+    display: none;
   }
 
   .mobile-menu-btn {
@@ -1076,11 +1064,25 @@
     cursor: pointer;
   }
 
-  nav ul {
-    display: none;
+  .sidebar {
+    position: fixed;
+    left: -200px;
+    top: 64px;
+    width: 80%;
+    height: calc(100vh - 64px);
+    background: #fff;
+    z-index: 1000;
+    padding-top: 60px;
+    transition: left 0.3s ease;
   }
 
-  .page {
+  .sidebar.active {
+    left: 0;
+  }
+
+  .page,
+  footer {
+    margin-left: 0;
     padding: 20px;
   }
 
@@ -1106,18 +1108,33 @@
     flex-direction: column;
   }
 
+  .cart-items,
   .cart-summary {
     width: 100%;
-    margin-top: 20px;
+    min-width: 100%;
   }
 
-  .cart-items {
+  .cart-item {
+    flex-direction: column;
+  }
+
+  .cart-item-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-item-image {
     width: 100%;
+    height: 200px;
   }
 
   .footer-container {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .footer-section {
+    margin-bottom: 30px;
   }
 
   .email-input {
