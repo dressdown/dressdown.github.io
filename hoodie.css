@@ -1,0 +1,18 @@
+.hoodieimg {
+  height: 100%;
+  width: 100%;
+  object-fit:cover;
+  background: #f8f8f8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hoodieimg img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
