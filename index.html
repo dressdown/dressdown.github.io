@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hawery Rode Collections</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="hoodie.css">
+</head>
+<body>
+  <header>
+    <button class="mobile-menu-btn">☰</button>
+    <nav>
+      <ul>
+        <li><a href="#" class="nav-link" data-page="home">HOME</a></li>
+        <li><a href="#" class="nav-link" data-page="collections"><strong>COLLECTIONS</strong></a></li>    
+        <li>
+          <div class="cart-position">
+            <a href="#" class="nav-link" data-page="cart">
+              <svg class="cart-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+            </a>
+            <div class="cart-count js-cart-count">0</div>
+          </div>
+        </li> 
+      </ul>
+    </nav>
+  </header>
+
+  <div class="sidebar">
+    <div class="logo">
+      <img class="logo" src="Logo.jpeg" alt="Hawery Rode Logo">
+    </div>
+    <p class="collections">COLLECTIONS</p>
+    <p class="dress"><a href="#" class="collection-link" data-collection="dress">DRESS</a></p>
+    <p class="shirt"><a href="#" class="collection-link" data-collection="shirt">SHIRT</a></p>
+    <p class="hoodie"><a href="#" class="collection-link" data-collection="hoodie"><strong>HOODIE</strong></a></p>
+    <p class="shorts"><a href="#" class="collection-link" data-collection="shorts">SHORTS</a></p>
+  </div>
+
+  <!-- Home Page -->
+  <div id="home-page" class="page active">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <h1 style="font-size: 48px; margin-bottom: 20px;">Dress Down Collections</h1>
+      <p style="font-size: 20px; max-width: 800px; margin: 0 auto 40px; color: #666;">
+        Discover premium fashion for the modern individual. Crafted with passion, designed for life.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 60px;">
+        <div style="background: #f8f8f8; padding: 30px; border-radius: 10px;">
+          <h2 style="margin-bottom: 20px;">New Arrivals</h2>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+              <div style="height: 200px;border-radius: 8px; background: #eaeaea; margin-bottom: 15px;">
+                <img class="hoodieimg" src="images/sun.jpg">
+              </div>
+              <h3>Summer Collection</h3>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+              <div style="height: 200px;border-radius: 8px; background: #eaeaea; margin-bottom: 15px;">
+                <img class="hoodieimg" src="images/cl.jpg">
+              </div>
+              <h3>Premium Essentials</h3>
+            </div>
+          </div>
+        </div>
+        <div style="background: #f8f8f8; padding: 30px; border-radius: 10px;">
+          <h2 style="margin-bottom: 20px;">Best Sellers</h2>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+              <div style="height: 200px;border-radius: 8px; background: #eaeaea; margin-bottom: 15px;">
+                <img class="hoodieimg" src="images/hoodie.jpg">
+              </div>
+              <h3>Classic Hoodies</h3>
+            </div>
+            <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+              <div style="height: 200px;border-radius: 8px; background: #eaeaea; margin-bottom: 15px;">
+                <img class="hoodieimg" src="images/de.webp">
+              </div>
+              <h3>Designer Dresses</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collections Pages -->
+  <div id="collections-page" class="page">
+    <h1 style="margin-bottom: 30px; text-align: center;" id="collection-title">Hoodie Collection</h1>
+    <div class="items-grid js-items-grid"></div>
+  </div>
+
+  <!-- Product Detail Page -->
+  <div id="product-detail-page" class="page">
+    <a href="#" class="back-to-collections" id="back-to-collections">← Back to Collections</a>
+    
+    <div class="product-container">
+      <div class="product-image">
+        <img id="detail-image" src="" alt="Product Image">
+      </div>
+      
+      <div class="product-details">
+        <h1 class="product-title-detail" id="detail-title"></h1>
+        <p class="product-subtitle" id="detail-subtitle"></p>
+        
+        <div class="product-price-detail">
+          <span class="current-price" id="detail-price"></span>
+          <span class="original-price-detail" id="detail-original-price"></span>
+          <span class="discount" id="detail-discount"></span>
+        </div>
+        
+        <div class="size-selector">
+          <div class="selector-title"><strong>SIZE</strong></div>
+          <div class="size-options">
+            <div class="size-option selected">S</div>
+            <div class="size-option">M</div>
+            <div class="size-option">L</div>
+            <div class="size-option">XL</div>
+          </div>
+        </div>
+        
+        <div class="color-selector">
+          <div class="selector-title"><strong>COLOR</strong></div>
+          <div class="color-options">
+            <div class="color-option selected" style="background-color: black;"></div>
+            <div class="color-option" style="background-color: red;"></div>
+            <div class="color-option" style="background-color: yellow;"></div>
+            <div class="color-option" style="background-color: gray;"></div>
+          </div>
+        </div>
+        
+        <div class="quantity-selector">
+          <div class="selector-title"><strong>QUANTITY</strong></div>
+          <select id="quantity-select">
+            <option selected value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+        
+        <p class="free-shipping">FREE SHIPPING</p>
+        
+        <div class="product-buttons">
+          <button class="add-to-cart">ADD TO CART</button>
+          <button class="buy-now">BUY NOW</button>
+        </div>
+        
+        <p style="margin-top: 30px; font-weight: 500;">Details</p>
+        <ul class="product-details-list" id="detail-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Page -->
+<div id="cart-page" class="page">
+  <h1 class="page-title">Your Shopping Cart</h1>
+
+  <!-- Add this wrapper -->
+  <div class="cart-container">
+    <div class="cart-items" id="cart-items-container">
+      <!-- Cart items will be populated here -->
+    </div>
+
+    <div class="cart-summary">
+      <h3 class="summary-title">Order Summary</h3>
+      <div class="summary-row">
+        <span class="summary-label">Subtotal</span>
+        <span class="summary-value" id="subtotal">₵0.00</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">Shipping</span>
+        <span class="summary-value">₵0.00</span>
+      </div>
+      <div class="summary-row">
+        <span class="summary-label">Tax (10%)</span>
+        <span class="summary-value" id="tax">₵0.00</span>
+      </div>
+      <div class="total-row">
+        <span>Total</span>
+        <span id="total">₵0.00</span>
+      </div>
+
+      <button class="checkout-btn">PROCEED TO CHECKOUT</button>
+
+      <div class="payment-options">
+        <div class="payment-title">We Accept:</div>
+        <div class="payment-methods">
+          <div class="payment-method paypal">
+            <i class="fab fa-cc-paypal"></i>
+            <span class="payment-label">PayPal</span>
+          </div>
+          <div class="payment-method credit-card">
+            <i class="far fa-credit-card"></i>
+            <span class="payment-label">Credit Card</span>
+          </div>
+          <div class="payment-method debit-card">
+            <i class="fas fa-credit-card"></i>
+            <span class="payment-label">Debit Card</span>
+          </div>
+          <div class="payment-method venmo">
+            <i class="fab fa-vimeo"></i>
+            <span class="payment-label">Venmo</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="back-to-collections">← Continue Shopping</a>
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <div class="newsletter">
+          <h3>NEWSLETTER</h3>
+          <p>Receive early access to new arrivals, sales, exclusive content, events and much more!</p>
+          <div class="email-input">
+            <input type="email" placeholder="Enter your email">
+            <button>→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>CUSTOMER SUPPORT</h3>
+        <p>
+          Email: <a href="mailto:support@hweryridge.com">support@dressdown.com</a><br>
+          <span class="support-note">We aim to respond to all inquiries within 24 hours.</span>
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>COMPANY INFORMATION</h3>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Retired Policy</a></li>
+          <li><a href="#">Shipping Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>© 2025 DRESS DOWN</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sample product data for each collection
+    const collections = {
+      dress: [
+        { 
+          id: 101, 
+          name: "Floral Summer Dress", 
+          description: "Lightweight cotton dress with floral pattern",
+          image: "images/fa.webp",
+          current_price: 199.99,
+          original_price: 249.99,
+          discounts: 20,
+          details: ["100% cotton", "Machine washable", "Adjustable straps", "Floral pattern"]
+        },
+        { 
+          id: 102, 
+          name: "Elegant Evening Gown", 
+          description: "Formal gown for special occasions",
+          image: "images/fs.webp",
+          current_price: 349.99,
+          original_price: 399.99,
+          discounts: 13,
+          details: ["Silk blend", "Dry clean only", "Floor-length", "Embroidered details"]
+        },
+        { 
+          id: 103, 
+          name: "Elegant Evening Gown", 
+          description: "Formal gown for special occasions",
+          image: "images/od.webp",
+          current_price: 349.99,
+          original_price: 399.99,
+          discounts: 13,
+          details: ["Silk blend", "Dry clean only", "Floor-length", "Embroidered details"]
+        },
+        { 
+          id: 104, 
+          name: "Elegant Evening Gown", 
+          description: "Formal gown for special occasions",
+          image: "images/fs.webp",
+          current_price: 349.99,
+          original_price: 399.99,
+          discounts: 13,
+          details: ["Silk blend", "Dry clean only", "Floor-length", "Embroidered details"]
+        },
+        { 
+          id: 105, 
+          name: "Elegant Evening Gown", 
+          description: "Formal gown for special occasions",
+          image: "images/da.webp",
+          current_price: 349.99,
+          original_price: 399.99,
+          discounts: 13,
+          details: ["Silk blend", "Dry clean only", "Floor-length", "Embroidered details"]
+        },
+        { 
+          id: 106, 
+          name: "Elegant Evening Gown", 
+          description: "Formal gown for special occasions",
+          image: "images/o.webp",
+          current_price: 349.99,
+          original_price: 399.99,
+          discounts: 13,
+          details: ["Silk blend", "Dry clean only", "Floor-length", "Embroidered details"]
+        }
+      ],
+      shirt: [
+        { 
+          id: 201, 
+          name: "Classic Oxford Shirt", 
+          description: "Timeless button-down shirt for any occasion",
+          image: "images/ty.jpg",
+          current_price: 89.99,
+          original_price: 109.99,
+          discounts: 18,
+          details: ["100% cotton", "Button-down collar", "Regular fit", "Machine washable"]
+        },
+        { 
+          id: 202, 
+          name: "Casual Flannel Shirt", 
+          description: "Comfortable flannel shirt for everyday wear",
+          image: "images/ui.webp",
+          current_price: 79.99,
+          original_price: 89.99,
+          discounts: 11,
+          details: ["Soft flannel fabric", "Plaid pattern", "Button front", "Comfortable fit"]
+        },
+        { 
+          id: 203, 
+          name: "Casual Flannel Shirt", 
+          description: "Comfortable flannel shirt for everyday wear",
+          image: "images/oi.webp",
+          current_price: 79.99,
+          original_price: 89.99,
+          discounts: 11,
+          details: ["Soft flannel fabric", "Plaid pattern", "Button front", "Comfortable fit"]
+        },
+        { 
+          id: 204, 
+          name: "Burberry", 
+          description: "check-pattern cotton shirt",
+          image: "images/ty.webp",
+          current_price: 79.99,
+          original_price: 89.99,
+          discounts: 11,
+          details: ["navy blue/multicolour", "front button fastening", "short sleeves", "cotton", "curved hem"]
+        },
+        { 
+          id: 205, 
+          name: "Casual Flannel Shirt", 
+          description: "Comfortable flannel shirt for everyday wear",
+          image: "images/q.webp",
+          current_price: 79.99,
+          original_price: 89.99,
+          discounts: 11,
+          details: ["Soft flannel fabric", "Plaid pattern", "Button front", "Comfortable fit"]
+        },
+        { 
+          id: 206, 
+          name: "Casual Flannel Shirt", 
+          description: "Comfortable flannel shirt for everyday wear",
+          image: "images/g.jpg",
+          current_price: 79.99,
+          original_price: 89.99,
+          discounts: 11,
+          details: ["Soft flannel fabric", "Plaid pattern", "Button front", "Comfortable fit"]
+        }
+      ],
+      hoodie: [
+        { 
+          id: 301, 
+          name: "Printed Cotton Jersey Hoodie", 
+          description: "Comfortable hoodie with unique graphic print",
+          image: "images/hoodie.jpg",
+          current_price: 137.00,
+          original_price: 159.99,
+          discounts: 14,
+          details: ["100% cotton", "Kangaroo pocket", "Drawstring hood", "Graphic print"]
+        },
+        { 
+          id: 302, 
+          name: "Classic Zip-Up Hoodie", 
+          description: "Simple yet stylish zip-up hoodie",
+          image: "images/hood.jpg",
+          current_price: 189.00,
+          original_price: 219.99,
+          discounts: 14,
+          details: ["Premium fleece", "Full zip front", "Ribbed cuffs", "Adjustable hood"]
+        },
+        { 
+          id: 303, 
+          name: "Authentic Umbro Hoodie", 
+          description: "Authentic Umbro stylish hoodie",
+          image: "images/hd.webp",
+          current_price: 189.00,
+          original_price: 219.99,
+          discounts: 14,
+          details: ["Premium fleece", "Full zip front", "Ribbed cuffs", "Adjustable hood"]
+        },
+        { 
+          id: 304, 
+          name: "Authentic Umbro Hoodie", 
+          description: "Authentic Umbro stylish hoodie",
+          image: "images/hoodie4.jpg",
+          current_price: 189.00,
+          original_price: 219.99,
+          discounts: 14,
+          details: ["Premium fleece", "Full zip front", "Ribbed cuffs", "Adjustable hood"]
+        },
+        { 
+          id: 305, 
+          name: "Authentic Umbro Hoodie", 
+          description: "Authentic Umbro stylish hoodie",
+          image: "images/hoodie6.jpg",
+          current_price: 189.00,
+          original_price: 219.99,
+          discounts: 14,
+          details: ["Premium fleece", "Full zip front", "Ribbed cuffs", "Adjustable hood"]
+        },
+        { 
+          id: 306, 
+          name: "Authentic Umbro Hoodie", 
+          description: "Authentic Umbro stylish hoodie",
+          image: "images/hoodie7.jpg",
+          current_price: 189.00,
+          original_price: 219.99,
+          discounts: 14,
+          details: ["Premium fleece", "Full zip front", "Ribbed cuffs", "Adjustable hood"]
+        },
+        { 
+          id: 307, 
+          name: "Authentic Umbro Hoodie", 
+          description: "Authentic Umbro stylish hoodie",
+          image: "images/hoodie-red.jpg",
+          current_price: 189.00,
+          original_price: 219.99,
+          discounts: 14,
+          details: ["Premium fleece", "Full zip front", "Ribbed cuffs", "Adjustable hood"]
+        },
+        { 
+          id: 308, 
+          name: "Authentic Umbro Hoodie", 
+          description: "Authentic Umbro stylish hoodie",
+          image: "images/sweatshirt-yellow.jpg",
+          current_price: 189.00,
+          original_price: 219.99,
+          discounts: 14,
+          details: ["Premium fleece", "Full zip front", "Ribbed cuffs", "Adjustable hood"]
+        },
+        { 
+          id: 309, 
+          name: "Authentic Umbro Hoodie", 
+          description: "Authentic Umbro stylish hoodie",
+          image: "images/ad.jpg",
+          current_price: 189.00,
+          original_price: 219.99,
+          discounts: 14,
+          details: ["Premium fleece", "Full zip front", "Ribbed cuffs", "Adjustable hood"]
+        }
+      ],
+      shorts: [
+        { 
+          id: 401, 
+          name: "Chino Shorts", 
+          description: "Classic chino shorts for summer",
+          image: "images/sh.jpg",
+          current_price: 79.99,
+          original_price: 89.99,
+          discounts: 11,
+          details: ["100% cotton", "Classic fit", "Multiple colors", "Machine washable"]
+        },
+        { 
+          id: 402, 
+          name: "Burberry Shorts", 
+          description: "printed elasticated shorts",
+          image: "images/we.webp",
+          current_price: 69.99,
+          original_price: 79.99,
+          discounts: 13,
+          details: ["Moisture-wicking fabric", "Elastic waistband", "Side pockets", "Quick-dry"]
+        },
+        { 
+          id: 403, 
+          name: "Dolce & Gabbana", 
+          description: "sailor-collar shorts",
+          image: "images/am.webp",
+          current_price: 69.99,
+          original_price: 79.99,
+          discounts: 13,
+          details: ["Moisture-wicking fabric", "Elastic waistband", "Side pockets", "Quick-dry"]
+        },
+        { 
+          id: 404, 
+          name: "Dolce & Gabbana", 
+          description: "sailor-collar shorts",
+          image: "images/as.webp",
+          current_price: 69.99,
+          original_price: 79.99,
+          discounts: 13,
+          details: ["Moisture-wicking fabric", "Elastic waistband", "Side pockets", "Quick-dry"]
+        },
+        { 
+          id: 405, 
+          name: "Alexander McQueen", 
+          description: "logo-tape track shorts",
+          image: "images/io.webp",
+          current_price: 69.99,
+          original_price: 79.99,
+          discounts: 13,
+          details: ["Moisture-wicking fabric", "Elastic waistband", "Side pockets", "Quick-dry"]
+        },
+        { 
+          id: 406, 
+          name: "Alexander McQueen", 
+          description: "logo-tape track shorts",
+          image: "images/mac.webp",
+          current_price: 69.99,
+          original_price: 79.99,
+          discounts: 13,
+          details: ["Moisture-wicking fabric", "Elastic waistband", "Side pockets", "Quick-dry"]
+        }
+        
+        
+        
+      ]
+    };
+
+    // Cart functionality
+    let cart = [];
+    let currentCollection = 'hoodie';
+
+    document.addEventListener('DOMContentLoaded', function() {
+      renderCollection(currentCollection);
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const page = this.getAttribute('data-page');
+          showPage(page);
+        });
+      });
+
+      document.querySelectorAll('.collection-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const collection = this.getAttribute('data-collection');
+          showCollection(collection);
+        });
+      });
+
+      document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('active');
+      });
+
+      document.querySelectorAll('.size-option').forEach(button => {
+        button.addEventListener('click', () => {
+          document.querySelectorAll('.size-option').forEach(btn => btn.classList.remove('selected'));
+          button.classList.add('selected');
+        });
+      });
+
+      document.querySelectorAll('.color-option').forEach(color => {
+        color.addEventListener('click', () => {
+          document.querySelectorAll('.color-option').forEach(clr => clr.classList.remove('selected'));
+          color.classList.add('selected');
+        });
+      });
+
+      document.getElementById('back-to-collections').addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage('collections');
+      });
+    });
+    // Render a collection
+    function renderCollection(collection) {
+      const items = collections[collection];
+      const grid = document.querySelector('.js-items-grid');
+      let html = '';
+      
+      items.forEach(item => {
+        html += `
+          <div class="item" data-id="${item.id}">
+            <div class="image-container">
+              <img class="images" src="${item.image}" alt="${item.name}">
+              <div class="discounts">${item.discounts}% OFF</div>
+              <div class="back">
+                <button class="quick-add">Quick Add</button>
+              </div>
+            </div>
+            <div class="product-info">
+              <div class="product-title">${item.name}</div>
+              <div class="product-price">
+                <span class="current-price">₵${item.current_price.toFixed(2)}</span>
+                <span class="original-price"><s>₵${item.original_price.toFixed(2)}</s></span>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      grid.innerHTML = html;
+      document.getElementById('collection-title').textContent = `${collection.charAt(0).toUpperCase() + collection.slice(1)} Collection`;
+      
+      // Add event listeners to items
+      document.querySelectorAll('.item').forEach(item => {
+        item.addEventListener('click', function() {
+          const productId = parseInt(this.getAttribute('data-id'));
+          showProductDetail(collection, productId);
+        });
+      });
+      
+      // Add event listeners to quick add buttons
+      document.querySelectorAll('.quick-add').forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const item = this.closest('.item');
+          const productId = parseInt(item.getAttribute('data-id'));
+          const product = getProductById(currentCollection, productId);
+          
+          if (product) {
+            addToCart(product, 1);
+          }
+        });
+      });
+    }
+
+    // Get product by ID
+    function getProductById(collection, id) {
+      return collections[collection].find(p => p.id === id);
+    }
+
+    // Show a specific page
+    function showPage(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(`${page}-page`).classList.add('active');
+      
+      // Update cart count
+      updateCartCount();
+      
+      // Render cart if needed
+      if (page === 'cart') {
+        renderCart();
+      }
+    }
+
+    // Show a specific collection
+    function showCollection(collection) {
+      currentCollection = collection;
+      renderCollection(collection);
+      showPage('collections');
+    }
+
+    // Show product detail
+    function showProductDetail(collection, id) {
+      const product = getProductById(collection, id);
+      
+      if (product) {
+        document.getElementById('detail-image').src = product.image;
+        document.getElementById('detail-title').textContent = product.name;
+        document.getElementById('detail-subtitle').textContent = product.description;
+        document.getElementById('detail-price').textContent = `₵${product.current_price.toFixed(2)}`;
+        document.getElementById('detail-original-price').innerHTML = `<s>₵${product.original_price.toFixed(2)}</s>`;
+        document.getElementById('detail-discount').textContent = `-${product.discounts}%`;
+        
+        const detailsList = document.getElementById('detail-list');
+        detailsList.innerHTML = '';
+        product.details.forEach(detail => {
+          const li = document.createElement('li');
+          li.textContent = detail;
+          detailsList.appendChild(li);
+        });
+        
+        showPage('product-detail');
+      }
+    }
+
+    // Add to cart
+    function addToCart(product, quantity) {
+      const existingItem = cart.find(item => item.id === product.id);
+      
+      if (existingItem) {
+        existingItem.quantity += quantity;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.current_price,
+          image: product.image,
+          quantity: quantity
+        });
+      }
+      
+      updateCartCount();
+      
+      // Animate cart count
+      const cartCount = document.querySelector('.js-cart-count');
+      cartCount.classList.add('animate');
+      setTimeout(() => {
+        cartCount.classList.remove('animate');
+      }, 300);
+      
+      // Create floating item animation
+      const floatingItem = document.createElement('div');
+      floatingItem.classList.add('floating-item');
+      floatingItem.style.position = 'fixed';
+      floatingItem.style.left = '50%';
+      floatingItem.style.top = '50%';
+      floatingItem.style.width = '40px';
+      floatingItem.style.height = '40px';
+      floatingItem.style.background = '#333';
+      floatingItem.style.borderRadius = '50%';
+      floatingItem.style.transform = 'translate(-50%, -50%)';
+      floatingItem.style.zIndex = '10000';
+      floatingItem.style.transition = 'all 0.8s ease-out';
+      
+      document.body.appendChild(floatingItem);
+      
+      setTimeout(() => {
+        const cartPosition = document.querySelector('.cart-position').getBoundingClientRect();
+        floatingItem.style.left = `${cartPosition.left + cartPosition.width/2}px`;
+        floatingItem.style.top = `${cartPosition.top + cartPosition.height/2}px`;
+        floatingItem.style.width = '5px';
+        floatingItem.style.height = '5px';
+        floatingItem.style.opacity = '0.5';
+      }, 10);
+      
+      setTimeout(() => {
+        floatingItem.remove();
+      }, 800);
+    }
+
+    // Update cart count
+    function updateCartCount() {
+      const count = cart.reduce((total, item) => total + item.quantity, 0);
+      document.querySelector('.js-cart-count').textContent = count;
+    }
+
+    // Render cart
+    function renderCart() {
+      const container = document.getElementById('cart-items-container');
+      
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="empty-cart-message">
+            <p>Your cart is empty</p>
+            <button class="continue-shopping-btn">Continue Shopping</button>
+          </div>
+        `;
+        
+        document.querySelector('.continue-shopping-btn').addEventListener('click', function(e) {
+          e.preventDefault();
+          showPage('collections');
+        });
+      } else {
+        let html = '';
+        
+        cart.forEach(item => {
+          html += `
+            <div class="cart-item" data-id="${item.id}">
+              <div class="cart-item-image">
+                <img src="${item.image}" alt="${item.name}">
+              </div>
+              <div class="cart-item-details">
+                <h3 class="cart-item-title">${item.name}</h3>
+                <p class="cart-item-color">Color: Gray <span class="color-indicator" style="background-color: black;"></span></p>
+                <p class="cart-item-size">Size: M</p>
+                <div class="cart-item-price">₵${(item.price * item.quantity).toFixed(2)}</div>
+                <div class="cart-item-actions">
+                    <div class="quantity-selector">
+                      <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                      <input type="text" class="quantity-input" value="${item.quantity}">
+                      <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <button class="remove-btn">
+                      <i class="fas fa-trash"></i> Remove
+                    </button>
+                </div>
+              </div>
+              <button class="close-item">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          `;
+        });
+        
+        container.innerHTML = html;
+        
+        // Add event listeners to quantity buttons
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+          button.addEventListener('click', function() {
+            const item = this.closest('.cart-item');
+            const id = parseInt(item.getAttribute('data-id'));
+            const input = item.querySelector('.quantity-input');
+            let quantity = parseInt(input.value);
+            
+            if (this.classList.contains('minus')) {
+              if (quantity > 1) {
+                quantity--;
+                input.value = quantity;
+                updateCartItem(id, quantity);
+              }
+            } else if (this.classList.contains('plus')) {
+              quantity++;
+              input.value = quantity;
+              updateCartItem(id, quantity);
+            }
+          });
+        });
+        
+        // Add event listeners to remove buttons
+        document.querySelectorAll('.cart-item-remove').forEach(button => {
+          button.addEventListener('click', function() {
+            const item = this.closest('.cart-item');
+            const id = parseInt(item.getAttribute('data-id'));
+            removeFromCart(id);
+          });
+        });
+        
+        // Add event listeners to quantity inputs
+        document.querySelectorAll('.quantity-input').forEach(input => {
+          input.addEventListener('change', function() {
+            const item = this.closest('.cart-item');
+            const id = parseInt(item.getAttribute('data-id'));
+            const quantity = parseInt(this.value) || 1;
+            this.value = quantity;
+            updateCartItem(id, quantity);
+          });
+        });
+      }
+      
+      // Update cart summary
+      updateCartSummary();
+    }
+
+    // Update cart item quantity
+    function updateCartItem(id, quantity) {
+      const item = cart.find(item => item.id === id);
+      if (item) {
+        item.quantity = quantity;
+        updateCartCount();
+        updateCartSummary();
+        renderCart();
+      }
+    }
+
+    // Remove from cart
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      updateCartCount();
+      renderCart();
+    }
+
+    // Update cart summary
+    function updateCartSummary() {
+      const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+      const tax = subtotal * 0.1;
+      const total = subtotal + tax;
+      
+      document.getElementById('subtotal').textContent = `₵${subtotal.toFixed(2)}`;
+      document.getElementById('tax').textContent = `₵${tax.toFixed(2)}`;
+      document.getElementById('total').textContent = `₵${total.toFixed(2)}`;
+    }
+
+    // Add to cart button
+    document.querySelector('.add-to-cart').addEventListener('click', function() {
+      const quantity = parseInt(document.getElementById('quantity-select').value);
+      const productId = parseInt(document.querySelector('.product-container').dataset.id);
+      const product = getProductById(currentCollection, productId);
+      
+      if (product) {
+        addToCart(product, quantity);
+      }
+    });
+
+    // Buy now button
+    document.querySelector('.buy-now').addEventListener('click', function() {
+      const quantity = parseInt(document.getElementById('quantity-select').value);
+      const productId = parseInt(document.querySelector('.product-container').dataset.id);
+      const product = getProductById(currentCollection, productId);
+      
+      if (product) {
+        addToCart(product, quantity);
+        showPage('cart');
+      }
+    });
+
+    // Checkout button
+    document.querySelector('.checkout-btn').addEventListener('click', function() {
+      if (cart.length > 0) {
+        alert('Thank you for your purchase! You will be redirected to checkout.');
+        cart = [];
+        updateCartCount();
+        renderCart();
+      }
+    });
+
+
+
+     document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.add-to-cart').addEventListener('click', function () {
+        const quantity = parseInt(document.getElementById('quantity-select').value);
+        const productId = parseInt(document.querySelector('.product-container').dataset.id);
+        const product = getProductById(currentCollection, productId);
+        if (product) {
+          addToCart(product, quantity);
+        }
+      });
+
+      document.querySelector('.buy-now').addEventListener('click', function () {
+        const quantity = parseInt(document.getElementById('quantity-select').value);
+        const productId = parseInt(document.querySelector('.product-container').dataset.id);
+        const product = getProductById(currentCollection, productId);
+        if (product) {
+          addToCart(product, quantity);
+          showPage('cart');
+        }
+      });
+    });
+
+    // Modify showProductDetail to store product ID for add-to-cart/buy-now
+    function showProductDetail(collection, id) {
+      const product = getProductById(collection, id);
+      if (product) {
+        document.querySelector('.product-container').dataset.id = product.id;
+        document.getElementById('detail-image').src = product.image;
+        document.getElementById('detail-title').textContent = product.name;
+        document.getElementById('detail-subtitle').textContent = product.description;
+        document.getElementById('detail-price').textContent = `₵${product.current_price.toFixed(2)}`;
+        document.getElementById('detail-original-price').innerHTML = `<s>₵${product.original_price.toFixed(2)}</s>`;
+        document.getElementById('detail-discount').textContent = `-${product.discounts}%`;
+
+        const detailsList = document.getElementById('detail-list');
+        detailsList.innerHTML = '';
+        product.details.forEach(detail => {
+          const li = document.createElement('li');
+          li.textContent = detail;
+          detailsList.appendChild(li);
+        });
+
+        showPage('product-detail');
+      }
+    }
+
+    // Handle remove button click inside the cart
+document.addEventListener('click', function (e) {
+  if (e.target.closest('.remove-btn')) {
+    const cartItemElement = e.target.closest('.cart-item');
+    const productId = parseInt(cartItemElement.getAttribute('data-id'));
+
+    // Remove the product from the cart
+    cart = cart.filter(item => item.id !== productId);
+
+    // Update cart display
+    updateCartCount();
+    renderCart();
+  }
+});
+
+  </script>
+</body>
+</html>
